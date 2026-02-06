@@ -114,38 +114,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
 
-// === ФОРМА НА СТРАНИЦЕ РЕЛИЗОВ ===
-const form = document.getElementById('release-form');
-if (form) {
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    
-    const formData = new FormData(form);
-    const webhookUrl = 'https://tgform.ru/webhook/019c2a5f-cdd0-7b1b-a5b3-fd8a58ea7e04';
 
-    const button = form.querySelector('button[type="submit"]');
-    const originalText = button.textContent;
-    button.disabled = true;
-    button.textContent = 'Отправка...';
-
-    fetch(webhookUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(response => {
-      if (response.ok) {
-        // Перенаправляем на success.html
-        window.location.href = '../success.html';
-      } else {
-        throw new Error('Ошибка отправки');
-      }
-    })
-    .catch(err => {
-      console.error('Ошибка:', err);
-      alert('Не удалось отправить заявку. Попробуйте позже.');
-      button.textContent = originalText;
-      button.disabled = false;
-    });
-  });
-}
