@@ -98,21 +98,17 @@
       <!-- Форма заявки -->
 <div class="form-section fade-in delay-5">
   <h2 class="form-title">Хотите выпустить релиз?</h2>
-  <form id="release-form">
-    <div class="form-group">
-      <input type="text" name="full_name" placeholder="ФИО" required>
-    </div>
-    <div class="form-group">
-      <input type="text" name="nickname" placeholder="Никнейм" required>
-    </div>
-    <div class="form-group">
-      <textarea name="why_you" placeholder="Почему должны взять именно вас?" rows="4" required></textarea>
-    </div>
-    <div class="form-group">
-      <input type="text" name="telegram" placeholder="Username TG (например, @alchemist)" required>
-    </div>
-    <button type="submit" class="form-button">Отправить заявку</button>
-  </form>
+  <form 
+  action="https://tgform.ru/webhook/019c2a5f-cdd0-7b1b-a5b3-fd8a58ea7e04" 
+  method="POST"
+  target="_blank"
+>
+  <input type="text" name="full_name" placeholder="ФИО" required>
+  <input type="text" name="nickname" placeholder="Никнейм" required>
+  <textarea name="why_you" placeholder="Почему должны взять именно вас?" rows="4" required></textarea>
+  <input type="text" name="telegram" placeholder="Username TG" required>
+  <button type="submit">Отправить заявку</button>
+</form>
 </div>
     </div>
   </main>
@@ -125,3 +121,4 @@
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
+
